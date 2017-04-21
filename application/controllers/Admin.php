@@ -12,9 +12,12 @@ class Admin extends CI_Controller
     }
     public function add_pg()
     {
+        $data['amenities']=$this->admin_model->get_all_amenities();
+        $data['rules']=$this->admin_model->get_all_rules();
+
         $this->load->view("admin/header");
         $this->load->view("admin/sidebar");
-        $this->load->view('admin/add_pg');
+        $this->load->view('admin/add_pg',$data);
         $this->load->view("admin/footer");
     }
     public function add_rule()
@@ -77,10 +80,45 @@ class Admin extends CI_Controller
     }
     public function new_pg_data()
     {
-        $pg_path = $this->config->item('pg_img');
+
+        print_r($_POST);
+        $name=$this->input->post('PG_Name');
+        $address=$this->input->post('address');
+        $contact=$this->input->post('contact');
+        $area=$this->input->post('area');
+        $lat = $this->input->post('latitude');
+        $long = $this->input->post('longitude');
+        $gender=$this->input->post('gender');
+        $city=$this->input->post('city');
+        $type=$this->input->post('type');
+        $amenities=$this->input->post('amenities');
+        $rules=$this->input->post('rules');
+        if(isset($amenities))
+            $new_amenities = implode(',',$amenities);
+        else
+            $new_amenities = "";
+        if(isset($rules))
+            $new_rules = implode(',',$rules);
+        else
+            $new_rules = "";
+        $vacant_beds=$this->input->post('vacant_beds');
+        $total_beds=$this->input->post('total_beds');
+        $room_price_sharing=$this->input->post('room_price_sharing');
+        $rooms=$this->input->post('rooms');
+        $room_share="";
+        $type=$this->input->post('type');
+        $tmp_arr = array();
+        for($i=0;$i<$rooms;$i++)
+        {
+            $k=$total_beds[$i]-$vacant_beds[$i];
+            $tmp_arr[] = ($i+1).":".$total_beds[$i].":".$vacant_beds[$i].":".$k.":".$room_price_sharing[$i];
+        }
+        $room_share = implode(",", $tmp_arr);
+      echo $room_share;
+       $pg_path = $this->config->item('pg_img');
         #pr($_FILES);
         pr(get_defined_vars());
-        exit;
+        
         $dirs = array_filter(glob($pg_path.'*'), 'is_dir');
         foreach ($dirs as $key => $value)
         {
@@ -107,32 +145,13 @@ class Admin extends CI_Controller
             $data = $this->upload->data();
         }
         
-        $name=$this->input->post('PG_Name');
-        $address=$this->input->post('address');
-        $contact=$this->input->post('contact');
-        $area=$this->input->post('area');
-        $lat = $this->input->post('latitude');
-        $long = $this->input->post('longitude');
         $room_price=$this->input->post('room_price');
-        $gender=$this->input->post('gender');
+        $property_desc=$this->input->post('description');
+        
         $vacant_beds=$this->input->post('vacant_beds');
-        $city=$this->input->post('city');
-        $price_to=$this->input->post('price_to');
-        $price_from=$this->input->post('price_from');
-        $type=$this->input->post('type');
-        $amenities=$this->input->post('amenities');
-        $rules=$this->input->post('rules');
-        if(isset($amenities))
-            $new_amenities = implode(',',$amenities);
-        else
-            $new_amenities = "";
-        if(isset($rules))
-            $new_rules = implode(',',$rules);
-        else
-            $new_rules = "";
-        $this->admin_model->pg_data_to_db($name, $address, $contact, $area, $lat, $long, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $new_amenities, $new_rules);
+        $this->admin_model->pg_data_to_db($name, $address, $contact, $area, $lat, $long, $room_share, $gender, $city,  $type, $form_no, $new_amenities, $new_rules,$property_desc);
        
-       redirect("admin/add_pg");
+      redirect("admin/add_pg");
     }
 }
 ?>

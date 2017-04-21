@@ -24,8 +24,7 @@ class Admin_model extends CI_Model
 			$query=$this->db->get('rules');
 			$result=$query->result_array();
 			return $result;
-		}
-
+		} 
 		public function eliminate_rule($id)
 		{
 			$query="update rules set status='0' where id='".$id."'";
@@ -51,6 +50,20 @@ class Admin_model extends CI_Model
 			
 		}*/
 
+		public function pg_data_to_db($name, $address, $contact, $area, $lat, $long, $room_share, $gender, $city, $type, $form_no, $amenities, $rules,$property_desc)
+		{
+			$this->db->select('id');
+			$this->db->where('contact',$contact);
+			$query=$this->db->get('owner');
+			$result=$query->row_array();
+
+			$owner_id = $result['id'];
+
+			#$name, $address, $contact, $area, $lat, $long, $room_share, $gender, $city,  $type, $form_no, $new_amenities, $new_rules,$this->input->post('description')
+			
+			$data=array('owner_id'=>$owner_id,'name'=>$name,'address'=>$address,'area'=>$area ,'latitude'=>$lat, 'longitude'=>$long, 'amenities'=>$amenities , 'room_price'=>$room_share,'rules'=>$rules,'gender'=>$gender,'city'=>$city ,'type'=>$type,'form_no'=>$form_no, 'property_desc'=>$property_desc);
+  			$this->db->insert('pg',$data);
+		}
 }
 
 

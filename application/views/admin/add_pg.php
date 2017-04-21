@@ -59,7 +59,24 @@ max-height: 500px;
 		            <input type="text" id="temp" class="form-control" name="PG Name" placeholder="Enter PG Name">
 		        </div>  
 			</div>	
-
+			<div class="form-group">
+			        <label class="control-label col-sm-2" for="Type">Type:</label>
+	            <div class="col-sm-4">
+	            <select class="form-control" name="type">
+	            	<option value="Paying guest">Paying Guest</option>
+	            	<option value="Backpacker">Backpacker</option>
+	            	<option value="Apartments">Apartments</option>
+	            </select>          
+        </div>
+        
+    </div>	
+    <div class="form-group">
+			        <label class="control-label col-sm-2" for="PG Name">PG Description:</label>
+	            <div class="col-sm-4">          
+            <textarea id="PG Name" class="form-control" name="description" rows="10" cols="20"
+           placeholder="Enter PG Name"></textarea>
+        </div>  
+		</div>	
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="Address">Address:</label>
 		        <div class="col-sm-4">          
@@ -88,11 +105,18 @@ max-height: 500px;
 		        </div>
 		        
 	    	</div>
-	
+				
 		  	<div class="form-group">
 					        <label class="control-label col-sm-2" for="area">Area:</label>
 			            <div class="col-sm-4">          
 		            <input type="text" id="Area" class="form-control" name="area" placeholder="Enter Area">
+		        </div>
+
+		    </div>
+		    <div class="form-group">
+				<label class="control-label col-sm-2" for="City">City:</label>
+			         <div class="col-sm-4">          
+		            	<input type="text" id="City" class="form-control" name="city" placeholder="Enter City">
 		        </div>
 		        </div>
 		        <div class="form-group">
@@ -112,113 +136,80 @@ max-height: 500px;
 		    </div>
 		<button type="button" class="accordion">Rules & Regulations</button>
 		<div class="panel">
-		  	<p>	  
-				<div class="form-group">
-			    	    <div class="col-sm-4">
-			    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="Smoking is not allowed in paying guest.">Smoking is not allowed in paying guest.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="Alcohol or any other toxic substance not allowed in paying guest.">Alcohol or any other toxic substance not allowed in paying guest.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="Non-veg food is not allowed in paying guest.">Non-veg food is not allowed in paying guest.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="1 month notice period.">1 month notice period.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="Ac electricity bill different.">Ac electricity bill different.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="No boys are allowed in paying guest.">No boys are allowed in paying guest.</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="rules[]" value="No girls are allowed in paying guest">No girls are allowed in paying guest</label>
-						</div>
-					     
-		        </div>
-		        
-		    	</div>
+		  	<p>
+		  		<div class="form-group">
+				<div class="col-sm-4">
+					<h4> <strong>Rules From Napspace:</strong></h4>
+			    	<?php foreach ($rules as $row):?>
+	    		    <?php	
+	    		    	if($row['type']=='Napspace')
+	    		    	{	
+	    		    ?>		    	    		
+
+				    <div class="checkbox">
+					<label><input type="checkbox" name="rules[]" value="<?=$row['rule']?>">
+					<?=$row['rule']?></label>
+					</div>
+							 
+				<?php } ?>
+				<?php	endforeach;?>
+
+				  	</div>
+				  	<div class="col-sm-offset-2 col-sm-4">
+				  	<h4> <strong>Rules From Napspace:</strong></h4>
+				<?php foreach ($rules as $row):?>
+	    		<?php	
+    		    	if($row['type']=='Owner')
+    		    	{	
+    		    ?>    
+		    	    		
+	    		    <div class="checkbox">
+					<label><input type="checkbox" name="rules[]" value="<?=$row['rule']?>">
+					<?=$row['rule']?></label>
+					</div>					    		
+							 
+				<?php } ?>
+				<?php	endforeach;?>
+					</div>
+    </div>
 			</p>
 		</div>
 		<button type="button" class="accordion">Amenities</button>
 		<div class="panel">
 			<p>	  
 				<div class="form-group">
-					        
-			    	    <div class="col-sm-4">
-			    		    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="1">24 Hours Security</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="2">Air Conditioner</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="3">Bed & Pillow</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="4">Breakfast</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="5">CCTV</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="6">Common Area</label>
-						</div>
-									<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="7">Cooking</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="8">CupBoard</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="9">Dinner</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="10">Geyser</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="11">Laundry</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="12">Lift</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="13">Lunch</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="14">Medical Treatment</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="15">Parking</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="16">Penthouse</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="17">R/O</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="18">Reading Space</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="19">Refigerator</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="20">TV</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="21">Tea</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="22">Terrace Garden</label>
-						</div>
-						    		<div class="checkbox">
-							<label><input type="checkbox" name="amenities[]" value="23">Wifi</label>
-						</div>
-					 </div>    
-		        </div>
+			    	<div class="col-sm-4">
+			    	<?php foreach ($amenities as $row):?>
+	    		    <?php	
+	    		    	if($row['id']<18)
+	    		    	{	
+	    		    ?>    
+		    	    		
+
+				    		<div class="checkbox">
+							<label><input type="checkbox" name="amenities[]" value="<?=$row['id']?>"> <?=$row['name']?> </label>
+							</div>
+							 
+				<?php } ?>
+				<?php	endforeach;?>
+				  	</div>
+				  	<div class="col-sm-offset-2 col-sm-4">
+				  	<?php foreach ($amenities as $row):?>
+	    		    <?php	
+	    		    	if($row['id']>=18)
+	    		    	{	
+	    		    ?>    
+		    	    		
+
+				    		<div class="checkbox">
+							<label><input type="checkbox" name="amenities[]" value="<?=$row['id']?>"> <?=$row['name']?> </label>
+							</div>
+							 
+				<?php } ?>
+				<?php	endforeach;?>
+					</div>
+				
+	</div>
 		    </p>
 		        
 		</div>
@@ -226,45 +217,16 @@ max-height: 500px;
 				<div class="panel">
 			<p>
 			<div class="form-group">
-					        <label class="control-label col-sm-2" for="Room sharing &amp; Rates">Room sharing &amp; Rates:</label>
+					        <label class="control-label col-sm-2" for="Room sharing &amp; Rates">Enter number of rooms:</label>
 			            <div class="col-sm-4">          
-		            <input type="text" id="Room sharing &amp; Rates" class="form-control" name="room_price" placeholder="Enter Room sharing &amp; Rates">
+		            <input type="text" id="rooms" class="form-control" name="rooms" placeholder="Enter number of rooms">		            
 		        </div>
+		        <button type="button" id="room_generate" class="col-sm-offset-2 col-sm-4 btn btn-primary">Add</button>
 		        
-		    </div>	<div class="form-group">
-					        <label class="control-label col-sm-2" for="Number of vacant rooms">Number of vacant beds:</label>
-			            <div class="col-sm-4">          
-		            <input type="text" id="Number of vacant rooms" class="form-control" name="vacant_beds" placeholder="Enter Number of vacant beds">
-		        </div>
-		        
-		    </div>	<div class="form-group">
-					        <label class="control-label col-sm-2" for="City">City:</label>
-			            <div class="col-sm-4">          
-		            <input type="text" id="City" class="form-control" name="city" placeholder="Enter City">
-		        </div>
-		        
-		    </div>	<div class="form-group">
-					        <label class="control-label col-sm-2" for="Price From">Price From:</label>
-			            <div class="col-sm-4">          
-		            <input type="text" id="Price From" class="form-control" name="price_from" placeholder="Enter Price From">
-		        </div>
-		        
-		    </div>	<div class="form-group">
-					        <label class="control-label col-sm-2" for="Price To">Price To:</label>
-			            <div class="col-sm-4">          
-		            <input type="text" id="Price To" class="form-control" name="price_to" placeholder="Enter Price To">
-		        </div>
-		        
-		    </div>	<div class="form-group">
-					        <label class="control-label col-sm-2" for="Type">Type:</label>
-			            <div class="col-sm-4">
-			            <select class="form-control" name="type">
-			            	<option value="Premium">Premium</option>
-			            	<option value="Executive">Executive</option>
-			            	<option value="Backpacker">Backpacker</option>
-			            </select>          
-		        </div>
-		        
+		    </div>
+		    <div class="form-group" id="add_divs">
+		    	
+
 		    </div>	
 		    </p> 
 		</div>	
@@ -320,6 +282,19 @@ $(document).ready(function()
 	$("#pg_form").submit(function(e)
 	{
 		alert($("#temp").val());
+	});
+	$("#room_generate").on('click',function(){
+
+		$("#add_divs").empty();
+		var room=$("#rooms").val();
+		if(room>0)
+		{
+
+		}
+		for(var i=0;i<room;i++)
+		{
+			$("#add_divs").append(" <div class='col-sm-12'> <div class='col-sm-1'>Room No. "+(i+1)+"</div> <div class='col-sm-3 '> <input type='text' id='total_beds' class='form-control' name='total_beds[]' placeholder='Enter Total Number of Beds'> </div> <div class='col-sm-offset-1 col-sm-3 '> <input type='text' id='vacant_beds' class='form-control' name='vacant_beds[]' placeholder='Enter number of Vacant Rooms'> </div> <div class='col-sm-offset-1 col-sm-3 '> <input type='text' id='price_sharing' class='form-control' name='room_price_sharing[]' placeholder='Enter Price Sharing of Room'> </div> </div><br><br>")
+		}
 	});
 });
 </script>

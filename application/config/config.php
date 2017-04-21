@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = 'http://localhost/napspace';
 $config['img_url'] = 'http://localhost/napspcae/img/pg_images/';
 $config['pg_img'] = 'img/pg_images/';
-$config['base_img_path'] = 'C:\xampp\htdocs\hhspg\img\pg_images\\';
+$config['base_img_path'] = 'C:\xampp\htdocs\napspace\img\pg_images\\';
 /*
 |--------------------------------------------------------------------------
 | Index File

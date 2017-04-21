@@ -1,92 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="<?= $this->config->item('base_url');?>/"/>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="cache-control" content="max-age=0" />
-	<meta http-equiv="cache-control" content="no-cache" />
-	<meta http-equiv="expires" content="0" />
-	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-	<meta http-equiv="pragma" content="no-cache" />
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/stylesheet.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/jquery-confirm.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<title>NapSpace-Home, Experience - all at one place</title>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/jquery-confirm.js"></script>
+	<base href="<?= $this->config->item('base_url');?>/"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Napspace,hostels" />
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/header_styles.css" rel="stylesheet">
+	<link href="css/header_style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>	
+	<script src="js/jquery.js"></script>
+	<script src="js/header_scripts.js"></script>
+	<script src="js/responsiveslides.min.js"></script>
+	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<script src="js/home/typed.js" type="text/javascript"></script>
+	<script src="js/home/anim.js" type="text/javascript"></script>
+	<script type="application/x-javascript">addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $('#horizontalTab').easyResponsiveTabs({
+	            type: 'default', //Types: default, vertical, accordion           
+	            width: 'auto', //auto or any width like 600px
+	            fit: true   // 100% fit in a container
+	        });
+	        $('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+	    });
+	</script>
+	<script>
+	    $(function () {
+	      $("#slider").responsiveSlides({
+	      	auto: true,
+	      	speed: 500,
+	        namespace: "callbacks",
+	        pager: true,
+	      });
+	    });
+	</script>
 </head>
-<body>
-	<div id="header">
-        <nav class="navbar navbar-default navigation-clean-button navbar-head">
-            <div class="container_div">
-                <div class="navbar-header">
-                	<a class="navbar-brand" href="" style="padding: 0px"> 
-                		<span style="color:#2e64ba;font-family:perpetua;font-weight:900;font-size:40px">NapSpace</span>
-                	</a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <!-- <ul class="nav navbar-nav">
-                        <li class="active" role="presentation"><a href="#">First Item</a></li>
-                        <li role="presentation"><a href="#">Second Item</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a href="#">First Item</a></li>
-                                <li role="presentation"><a href="#">Second Item</a></li>
-                                <li role="presentation"><a href="#">Third Item</a></li>
-                            </ul>
-                        </li>
-                    </ul> -->
-	                
-		      		<div class="dropdown pull-right" id="large_side_links">
-						<p class="navbar-text navbar-right actions pointer" data-toggle="dropdown" style="padding: 5px; margin-left: 25px;" >
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</p>
-						<ul class="dropdown-menu pull-right">
-							<li><a href="home/about_us">About us</a></li>
-							<li><a href="blogs">Blogs</a></li>
-							<li><a href="home/contact">Contact us</a></li>
-						</ul>
+<body >
+<!--header-->
+	<div class="navigation">
+		<div class="container-fluid">
+			<nav class="pull">
+				<ul>
+					<li><a  href="index.html">Home</a></li>
+					<li><a  href="about.html">About Us</a></li>
+					<li><a  href="blog.html">Blog</a></li>
+					<li><a  href="terms.html">Terms</a></li>
+					<li><a  href="privacy.html">Privacy</a></li>
+					<li><a  href="contact.html">Contact</a></li>
+				</ul>
+			</nav>			
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<h1><a href="">NapSpace</a></h1>
+			</div>
+			<div class="top-nav">
+				<ul class="right-icons">
+					<li><span ><i class="glyphicon glyphicon-phone"> </i>+91-8980 274484</span></li>
+					<li><a  href="login.html"><i class="glyphicon glyphicon-user"> </i>Login</a></li>
+					<li><a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a></li>
+					
+				</ul>
+				<div class="nav-icon">
+					<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+						<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
 					</div>
-                    <?php if($this->session->userdata('user_id')==null and $this->session->userdata('owner_id')==null):?>	
-	                    <p class="navbar-text navbar-right actions">
-		                    <a class="btn btn-default action-button" role="button" href="user" style="background:#2e64ba">Login</a>
-		                </p>
-
-	                <?php elseif($this->session->userdata('user_id')!=null):?>
-							<p class="navbar-text navbar-right actions">
-							<a href="user/view_wishlist">
-								<button class="btn btn-danger action-button">
-									<i class="fa fa-star"></i> 
-									View Wishlist
-								</button>
-							</a>
-							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
-							</p>
-					<?php elseif($this->session->userdata('owner_id')!=null):?>
-							<p class="navbar-text navbar-right actions">
-							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
-							</p>
-					<?php endif;?>	
-					<div id="small_side_links">
-						<p class="white">
-							<a class="navbar-link login white" href="owner">About us</a>
-							<a class="navbar-link login white" href="owner">Blogs</a>
-							<a class="navbar-link login white" href="owner">Contact us</a>
-						</p>
+					<div id="small-dialog" class="mfp-hide">
+							    <!----- tabs-box ---->
+						<div class="sap_tabs">	
+						     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+								  <ul class="resp-tabs-list">
+								  	  <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>All Homes</span></li>
+									  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>For Sale</span></li>
+									  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>For Rent</span></li>
+									  <div class="clearfix"></div>
+								  </ul>				  	 
+								  <div class="resp-tabs-container">
+								  		<h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>All Homes</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+										 	<div class="facts">
+											  	<div class="login">
+													<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+											 		<input type="submit" value="">
+											 	</div>        
+									        </div>
+								  		</div>
+									     <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>For Sale</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+											<div class="facts">									
+												<div class="login">
+													<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+											 		<input type="submit" value="">
+											 	</div> 
+									        </div>	
+										 </div>									
+									      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>For Rent</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+											 <div class="facts">
+												<div class="login">
+													<input type="text" value="Search Address, Neighborhood, City or Zip" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Address, Neighborhood, City or Zip';}">		
+											 		<input type="submit" value="">
+											 	</div> 
+									         </div>	
+									    </div>
+							      </div>
+							 </div>
 					</div>
-                </div>
-            </div>
-        </nav>
-    </div>
-	
-	<div id="body">
-	<?php 
-	$t=$this->session->userdata('user_id')==null Or $this->session->userdata('owner_id')==null;
-	 ?>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>	
+	</div>
+</div>
